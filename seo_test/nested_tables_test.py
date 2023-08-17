@@ -9,14 +9,12 @@ def has_nested_tables(url):
         soup = BeautifulSoup(response.content, 'lxml')
         # Find all table elements
         table_elements = soup.select("table")
-        print(len(table_elements))
         # Check for nested tables
         nested_tables = 0
         for table in table_elements:
             parent_tables = table.find_parents("table")
             if parent_tables:
                 nested_tables += 1
-        print(nested_tables)
         if nested_tables > 0:
             print(f"The page has {nested_tables} nested table(s).")
         else:
