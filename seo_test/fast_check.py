@@ -126,7 +126,8 @@ check_server_signature(website_url)
 def check_directory_browsing(url):
     """Directory Browsing Test"""
     result = []
-    for check in ['index', 'path', '', '@']:
+    for check in ['index', 'path', 'default', 'includes', 'main', 'files', 'images', 'pics', 'vids',
+                  'home/siteurl/web/includes/.htaccess', 'default.html', '.htaccess']:
         url = urljoin(url, check)
         try:
             response = requests.get(url)
