@@ -20,13 +20,13 @@ class BuiltWithParser:
         for card in cards:
             title = card.select_one('.card-title').text
             print(title)
-            technologies = card.select('.row.mb-2.mt-2')
+            technologies = card.select('.row.mb-1.mt-1')
             technology_list = []
             for item in technologies:
                 technology_name = item.select_one('h2 a').text
-                sub_list = item.select('.row.mb-2')
+                sub_list = item.select('.row.mb-1')
                 if sub_list:
-                    sub_technologies = list(map(lambda x: x.select_one('a').text, item.select('.row.mb-2')))
+                    sub_technologies = list(map(lambda x: x.select_one('a').text, item.select('.row.mb-1')))
                     technology_list.append({technology_name: sub_technologies})
                 else:
                     technology_list.append({technology_name})
